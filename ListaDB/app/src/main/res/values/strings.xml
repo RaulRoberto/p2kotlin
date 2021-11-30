@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Round List</string>
+    <string name="d_bito_atual">Débito Atual</string>
+    <string name="nome">Nome</string>
+    <string name="adicionar">Adicionar</string>
+</resources>
