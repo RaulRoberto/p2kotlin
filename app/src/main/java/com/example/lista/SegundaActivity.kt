@@ -17,7 +17,6 @@ class SegundaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_segunda)
 
         val img = findViewById<ImageView>(R.id.imageView)
-
         //vai da errado isso
         val nome = intent.getStringExtra("nome")
         val valor = intent.getIntExtra("valor",0)
@@ -78,12 +77,22 @@ class SegundaActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                txtValor.text = "Selected: "
-                // get selected item text
-                if (position == 0) txtValor.text = String.format("BRL :  %.2f",valor2)
-                if (position == 1 ) txtValor.text = String.format("USD : %.2f",(valor2?.div(5)))
-                if (position == 2 ) txtValor.text = String.format("EUR : %.2f",(valor2?.div(6)))
-                if (position == 3 ) txtValor.text = String.format("GBP : %.2f",(valor2?.div(7)))
+                if(valor2<1){
+                    txtValor.text = "Sem débitos."
+                    if(spinner.isEnabled()){
+                        spinner.setEnabled(false)
+                    }
+
+                }else{
+                    if(!spinner.isEnabled()){
+                        spinner.setEnabled(true)
+                    }
+                    if (position == 0) txtValor.text = String.format("BRL :  %.2f",valor2)
+                    if (position == 1 ) txtValor.text = String.format("USD : %.2f",(valor2?.div(5)))
+                    if (position == 2 ) txtValor.text = String.format("EUR : %.2f",(valor2?.div(6)))
+                    if (position == 3 ) txtValor.text = String.format("GBP : %.2f",(valor2?.div(7)))
+                }
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

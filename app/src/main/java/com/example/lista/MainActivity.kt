@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun abrirTela(){
+
         val intent = android.content.Intent(this, com.example.lista.CadastroActivity::class.java)
         startActivity(intent)
     }

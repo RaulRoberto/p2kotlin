@@ -22,7 +22,6 @@ class ItemAdapter(
 
         val txtInfo1: TextView = view.findViewById(R.id.txtInfo1)
         val txtInfo2: TextView = view.findViewById(R.id.txtInfo2)
-
         init {
             itemView.setOnClickListener {
                 onItemClick?.invoke(dados[adapterPosition])

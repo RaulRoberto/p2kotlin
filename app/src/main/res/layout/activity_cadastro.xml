@@ -14,8 +14,8 @@
         android:layout_height="50dp"
         android:ems="10"
         android:hint="Debito"
-        android:inputType="phone" />
+        android:inputType="number" />
 
     <Button android:id="@+id/button" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Adicionar"/>
-    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"  android:layout_width="match_parent" android:layout_height="match_parent"/>
 </LinearLayout>

@@ -63,18 +63,21 @@ class CadastroActivity : AppCompatActivity() {
         val edtInfo1 = findViewById<EditText>(R.id.edtInfo1)
         val edtInfo2 = findViewById<EditText>(R.id.edtInfo2)
 
+
+        if(edtInfo2.text.isBlank() or edtInfo2.text.isEmpty()){
+            edtInfo2.setText("0")
+        }
+
         val novoItem = Item(0, edtInfo1.text.toString(), edtInfo2.text.toString())
-        if (edtInfo1!=null){
+
+        if (edtInfo1.text.trim().length>0){
             dados.add(novoItem)
             db.itemDao().incluirItem(novoItem)
-
             recyclerView.adapter?.notifyDataSetChanged()
-
 
             Toast.makeText(this, "Jogador Inserido com sucesso na Lista!!!", Toast.LENGTH_LONG).show()
 
-
-        }else{ Toast.makeText(this, "Necessário preencher o Nome do Jogador", Toast.LENGTH_LONG).show()}
+        }else Toast.makeText(this, "Necessário preencher o Nome do Jogador", Toast.LENGTH_LONG).show()
 
         edtInfo1.text.clear()
         edtInfo2.text.clear()
