@@ -17,10 +17,11 @@ class SegundaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_segunda)
 
         val img = findViewById<ImageView>(R.id.imageView)
-        val id = intent.getIntExtra("id",0)
+
         //vai da errado isso
         val nome = intent.getStringExtra("nome")
-        val numero = intent.getStringExtra("numero")
+        val valor = intent.getIntExtra("valor",0)
+        val id = intent.getIntExtra("id",0)
 
 
 
@@ -58,17 +59,14 @@ class SegundaActivity : AppCompatActivity() {
         // finally, data bind spinner with adapter
         spinner.adapter = adapter
 
-
-
-
         val txtNome = findViewById<TextView>(R.id.txtNome)
         val txtValor = findViewById<TextView>(R.id.txtValor)
         val txtId = findViewById<TextView>(R.id.txtId)
 
         txtId.text = id.toString()
         txtNome.text = nome
-        txtValor.text = numero
-        var numero2= numero?.toDouble()
+        txtValor.text = valor.toString()
+        var valor2 = valor.toDouble()
 
         val button2 = findViewById<Button>(R.id.button2)
 
@@ -82,22 +80,17 @@ class SegundaActivity : AppCompatActivity() {
             ) {
                 txtValor.text = "Selected: "
                 // get selected item text
-                if (position == 0) txtValor.text = String.format("BRL :  %.2f",numero2)
-                if (position == 1 ) txtValor.text = String.format("USD : %.2f",(numero2?.div(5)))
-                if (position == 2 ) txtValor.text = String.format("EUR : %.2f",(numero2?.div(6)))
-                if (position == 3 ) txtValor.text = String.format("GBP : %.2f",(numero2?.div(7)))
+                if (position == 0) txtValor.text = String.format("BRL :  %.2f",valor2)
+                if (position == 1 ) txtValor.text = String.format("USD : %.2f",(valor2?.div(5)))
+                if (position == 2 ) txtValor.text = String.format("EUR : %.2f",(valor2?.div(6)))
+                if (position == 3 ) txtValor.text = String.format("GBP : %.2f",(valor2?.div(7)))
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // another interface callback
             }
         }
-
-
-
-
         //fim spinner
-
 
         if (id%2==0) {
             img.setImageResource(R.drawable.mask_1)
